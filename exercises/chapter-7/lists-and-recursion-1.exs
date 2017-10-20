@@ -1,0 +1,7 @@
+defmodule MyList do
+  def mapsum(list, func)
+  def mapsum([], _),
+    do: 0
+  def mapsum([ head | tail ], func),
+    do: func.(head) + mapsum(tail, func)
+end
