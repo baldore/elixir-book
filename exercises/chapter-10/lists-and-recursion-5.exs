@@ -5,7 +5,14 @@ defmodule MyEnum do
   def all?([ head | tail ], func),
     do: !!func.(head) and all?(tail, func)
 
-  # def each
+  def each(list, func)
+  def each([], _func),
+    do: :ok
+  def each([ head | tail ], func) do
+    func.(head)
+    each(tail, func)
+  end
+
   # def filter
   # def split
   # def take
