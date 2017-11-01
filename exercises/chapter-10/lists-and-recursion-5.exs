@@ -1,5 +1,5 @@
 defmodule MyEnum do
-  def all?(enumerable, func)
+  def all?(list, func \\ fn x -> !!x end)
   def all?([], _func),
     do: true
   def all?([ head | tail ], func),
