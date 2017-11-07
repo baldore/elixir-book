@@ -24,6 +24,11 @@ defmodule MyEnum do
     end
   end
 
-  # def split
-  # def take
+  def split(list, count),
+    do: do_split(list, count, [])
+  def do_split(rest, 0, acc),
+    do: {Enum.reverse(acc), rest}
+  def do_split([head | tail], count, acc),
+    do: do_split(tail, count - 1, [head | acc])
+
 end
