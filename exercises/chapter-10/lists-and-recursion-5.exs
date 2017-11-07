@@ -13,7 +13,17 @@ defmodule MyEnum do
     each(tail, func)
   end
 
-  # def filter
+  def filter(list, func)
+  def filter([], _func),
+    do: []
+  def filter([ head | tail], func) do
+    if func.(head) do
+      [head | filter(tail, func)]
+    else
+      filter(tail, func)
+    end
+  end
+
   # def split
   # def take
 end
